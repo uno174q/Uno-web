@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    width: 60px;
+    height: 90px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    text-align: center;
+    line-height: 90px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.red { background-color: #ff5555; color: white; }
+.blue { background-color: #5555ff; color: white; }
+.green { background-color: #55aa55; color: white; }
+.yellow { background-color: #ffaa00; color: black; }
+.black { background-color: #333333; color: white; }
+
+#discard-pile {
+    margin: 20px auto;
+    min-height: 100px;
+}
+
+#draw-btn {
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#game-info {
+    margin-top: 20px;
+    font-size: 18px;
+}
