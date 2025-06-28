@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>UNO Oyunu</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<title>UNO Kart Gösterme</title>
+<style>
+  svg g { display: none; }
+  svg g.active { display: inline; }
+  button { margin: 5px; }
+</style>
 </head>
 <body>
-  <h1>UNO Oyunu</h1>
-  
-  <div id="discard-pile">Atılan Kart: <span id="discard-card">-</span></div>
-  <div id="player-hand"></div>
-  <button id="draw-card">Kart Çek</button>
-  <p id="message"></p>
 
-  <script src="script.js"></script>
+<h2>UNO Kart Gösterici</h2>
+
+<div id="svg-container">
+  <!-- Buraya SVG dosyasını inline olarak yapıştıracağız -->
+</div>
+
+<div id="buttons"></div>
+
+<script>
+// Kart ID'lerini SVG içinden alman lazım, örnek olarak burada liste:
+const cardIds = [
+  "red_0", "red_1", "red_2", "red_skip", "wild" // örnek ID'ler
+];
+
+// Butonları oluştur
+const buttonsDiv = document.getElementById("buttons");
+cardIds.forEach(id => {
+  const btn = document.createElement("button");
+  btn.textContent = id;
+  btn.onclick = () => showCard(id);
+  buttonsDiv.appendChild(btn);
+});
+
+// Kart gösterme fonksiyonu
+function showCard(id) {
+  const groups = document.querySelectorAll("svg g");
+  groups.forEach(g => g.classList.remove("active"));
+  const activeGroup = document.getElementById(id);
+  if (activeGroup) activeGroup.classList.add("active");
+}
+
+// Sayfa yüklendiğinde SVG dosyasını fetch edip inline ekle
+fetch('images/UNO_cards_deck.svg')
+  .then(res => res.text())
+  .then(svgText => {
+    document.getElementById("svg-container").innerHTML = svgText;
+    // İlk kartı göster
+    showCard(cardIds[0]);
+  })
+  .catch(e => console.error("SVG yüklenirken hata:", e));
+</script>
+
 </body>
 </html>
