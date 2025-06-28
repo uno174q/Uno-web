@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>UNO Oyunu</title>
-  <style>
-    body { font-family: Arial; text-align: center; background: #f0f8ff; }
-    #game-board { margin: 20px auto; max-width: 600px; }
-    .card {
-      width: 80px; height: 120px; margin: 5px;
-      background: white; border-radius: 10px;
-      display: inline-block; font-weight: bold;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      line-height: 120px;
-    }
-    .red { color: #ff4444; }
-    .blue { color: #4444ff; }
-    .green { color: #44aa44; }
-    .yellow { color: #ffaa00; }
-    .black { color: #000; }
-  </style>
+    <title>JavaScript UNO</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>UNO</h1>
-  <div id="game-board">
-    <div id="discard-pile"></div>
-    <div id="hand"></div>
-    <button id="draw-btn">Kart Çek</button>
-  </div>
-  <script src="game.js"></script>
+    <div id="game-container">
+        <div id="opponent-hand"></div>
+        <div id="discard-pile"></div>
+        <div id="player-hand"></div>
+        <button id="draw-btn">Kart Çek</button>
+        <div id="game-info"></div>
+    </div>
+    <script src="game.js"></script>
 </body>
 </html>
