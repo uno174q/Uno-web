@@ -1,22 +1,30 @@
-const startScreen = document.getElementById('start-screen');
-const gameContainer = document.getElementById('game-container');
-const playerNameInput = document.getElementById('player-name');
-const startGameBtn = document.getElementById('start-game-btn');
-const gameStatus = document.getElementById('game-status');
 const playerHand = document.getElementById('player-hand');
 
-startGameBtn.addEventListener('click', () => {
-  const name = playerNameInput.value.trim();
-  if (name === '') return alert('İsmini girmelisin!');
+const imageMap = {
+  red_1: 'R1.png',
+  blue_0: 'B0.png',
+  yellow_skip: 'YS.png',
+  green_reverse: 'GR.png',
+  yellow_draw2: 'YA2.png',
+  wild: 'WC.png',
+  wild_draw4: 'W4.png'
+};
 
-  startScreen.style.display = 'none';
-  gameContainer.style.display = 'flex';
-  gameStatus.textContent = `${name}, oyuna hoş geldin!`;
-  // Örnek kart gösterimi
-  const card = document.createElement('div');
-  card.textContent = '🔴 7';
-  card.style.padding = '20px';
-  card.style.background = 'rgba(255,0,0,0.6)';
-  card.style.borderRadius = '10px';
-  playerHand.appendChild(card);
+const testCards = [
+  { color: 'red', value: '1' },
+  { color: 'blue', value: '0' },
+  { color: 'yellow', value: 'skip' },
+  { color: 'green', value: 'reverse' },
+  { color: 'yellow', value: 'draw2' },
+  { color: 'wild', value: 'wild' },
+  { color: 'wild', value: 'draw4' }
+];
+
+testCards.forEach(card => {
+  const key = card.color === 'wild' ? card.value : `${card.color}_${card.value}`;
+  const fileName = imageMap[key] || 'default.png';
+  const cardEl = document.createElement('div');
+  cardEl.className = 'card';
+  cardEl.style.backgroundImage = `url('img/${fileName}')`;
+  playerHand.appendChild(cardEl);
 });
