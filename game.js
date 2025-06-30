@@ -1,3 +1,4 @@
+console.log("UNO Glow başlatılıyor...");
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-btn");
   const startScreen = document.getElementById("start-screen");
