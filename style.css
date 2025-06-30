@@ -1,26 +1,45 @@
 body {
   margin: 0;
   height: 100vh;
-  background: url('img/uno_glow.png') no-repeat center center;
-  background-size: cover;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Arial', sans-serif;
+  background: url('img/uno_glow.png') center center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* İsim giriş ekranı */
 #start-screen {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
   color: white;
 }
 
-#start-screen input, #start-screen button {
-  margin-top: 10px;
+/* Input alanı */
+#player-name {
   padding: 10px;
   font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  width: 240px;
+}
+
+/* Buton */
+#start-game-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: #f44336;
+  color: white;
+  cursor: pointer;
 }
