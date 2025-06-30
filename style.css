@@ -67,3 +67,5 @@ body {
 .card:hover {
   transform: scale(1.05);
 }
+* { outline: 2px solid lime !important; }
+}
