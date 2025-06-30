@@ -1,75 +1,26 @@
-/* Genel sayfa tasarımı */
 body {
   margin: 0;
   height: 100vh;
   background: url('img/uno_glow.png') no-repeat center center;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: 'Nunito', sans-serif;
 }
 
-/* İsim giriş ekranı */
 #start-screen {
   position: absolute;
   top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6); /* Şeffaf karartma */
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 999;
   color: white;
-  text-align: center;
 }
 
-/* Başlık ve açıklama */
-#start-screen h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-#start-screen p {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-/* İsim kutusu */
-#start-screen input {
+#start-screen input, #start-screen button {
+  margin-top: 10px;
   padding: 10px;
   font-size: 1.2rem;
-  border-radius: 8px;
-  border: none;
-  margin-top: 10px;
-  width: 220px;
-}
-
-/* Başla butonu */
-#start-screen button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 8px;
-  background: #f44336;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#start-screen button:hover {
-  background: #ff6659;
-}
-
-/* Oyun ekranı alanı (başlangıçta gizli) */
-#game-container {
-  display: none;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  color: white;
 }
