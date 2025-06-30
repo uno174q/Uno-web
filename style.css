@@ -1,53 +1,15 @@
 body {
   margin: 0;
-  height: 100vh;
-  font-family: 'Arial', sans-serif;
-  background: url('img/uno_glow.png') center center / cover no-repeat;
-}
-
-#start-screen {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: #1a1a1a;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 999;
-  color: white;
-  text-align: center;
-}
-
-#player-name {
-  padding: 10px;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  border: none;
-  margin-top: 10px;
-  width: 240px;
-}
-
-#start-game-btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 8px;
-  background: #f44336;
-  color: white;
-  cursor: pointer;
-}
-
-#game-container {
-  padding: 20px;
-  color: white;
+  height: 100vh;
 }
 
 #player-hand {
   display: flex;
   gap: 12px;
-  margin-top: 20px;
 }
 
 .card {
@@ -56,9 +18,5 @@ body {
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-  transition: transform 0.2s ease;
-}
-.card:hover {
-  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
