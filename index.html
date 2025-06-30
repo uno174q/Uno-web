@@ -6,18 +6,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Giriş ekranı -->
   <div id="start-screen">
     <h2>UNO Glow'a Hoş Geldin</h2>
     <input type="text" id="player-name" placeholder="İsmini yaz..." />
     <button id="start-game-btn">Oyuna Başla</button>
   </div>
 
+  <!-- Oyun sahnesi -->
   <div id="game-container" style="display: none;">
-    <h2 id="player-label"></h2>
-    <h3>Sıra: <span id="turn-indicator">Oyuncu</span></h3>
+    <h2 id="turn-indicator">Sıra: Oyuncu</h2>
+
     <div id="player-hand"></div>
+
     <hr />
-    <h3>Bot’un Kartı</h3>
+
+    <h2>Bot’un Kartları</h2>
     <div id="bot-hand"></div>
   </div>
 
