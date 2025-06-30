@@ -1,22 +1,88 @@
+/* Genel gövde yapısı ve arka plan */
 body {
   margin: 0;
-  background: #1a1a1a;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background: url('img/uno_glow.png') center center / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  overflow: hidden;
 }
 
+/* Giriş ekranı */
+#start-screen {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* karartma */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  color: white;
+  text-align: center;
+}
+
+#start-screen h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#player-name {
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: none;
+  width: 240px;
+  margin-top: 10px;
+  background: white;
+  color: black;
+}
+
+#start-game-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#start-game-btn:hover {
+  background: #ff6659;
+}
+
+/* Oyun ekranı */
+#game-container {
+  display: none;
+  padding: 20px;
+  color: white;
+}
+
+/* Kart alanı */
 #player-hand {
   display: flex;
   gap: 12px;
+  margin-top: 20px;
 }
 
+/* Kart kutusu */
 .card {
   width: 80px;
   height: 120px;
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
