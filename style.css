@@ -17,13 +17,27 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 input, button {
   margin: 10px;
-  padding: 10px;
-  font-size: 1.1rem;
+  padding: 10px 20px;
+  font-size: 1rem;
   border-radius: 8px;
+  border: none;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d32f2f;
+}
+
+.section {
+  margin: 20px 0;
 }
 
 #player-hand, #bot-hand {
@@ -38,21 +52,81 @@ input, button {
   height: 120px;
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(255,255,255,0.3);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 0 18px rgba(255,255,255,0.6);
 }
 
 #center-card {
   width: 100px;
   height: 150px;
-  margin: 10px auto;
+  margin: 20px auto;
   background-size: cover;
-  border: 2px solid white;
   border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 0 0 18px rgba(255,255,255,0.5);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+  50%  { box-shadow: 0 0 25px rgba(255,255,255,0.8); }
+  100% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+}
+
+#color-picker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.85);
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 12px;
+  z-index: 20;
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
+}
+
+.color-btn {
+  margin: 10px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  background-color: #444;
+  cursor: pointer;
+}
+
+.color-btn[data-color="red"]    { background-color: #e53935; }
+.color-btn[data-color="blue"]   { background-color: #1e88e5; }
+.color-btn[data-color="green"]  { background-color: #43a047; }
+.color-btn[data-color="yellow"] { background-color: #fbc02d; color: #000; }
+
+.color-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255,255,255,0.5);
+}
+
+#win-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.6);
+  z-index: 30;
+}
+
+#win-message {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
