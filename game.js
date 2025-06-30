@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-game-btn");
   const playerHand = document.getElementById("player-hand");
 
-  // Görsel adlarını eşleştiriyoruz (senin özel adlarına göre)
   const imageMap = {
     red_1: "R1.png",
     blue_0: "B0.png",
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     draw4: "W4.png"
   };
 
-  // Başlat butonuna tıklanınca sahneyi göster
   startBtn.addEventListener("click", () => {
     const name = playerInput.value.trim();
     if (!name) {
@@ -24,11 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Giriş ekranını kapat, oyunu başlat
     startScreen.style.display = "none";
     gameContainer.style.display = "block";
 
-    // Oyuncuya örnek kartlar ver
     const cards = [
       { color: "red", value: "1" },
       { color: "blue", value: "0" },
@@ -39,10 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
       { color: "wild", value: "draw4" }
     ];
 
-    // Kartları sahneye ekle
     cards.forEach(card => {
       const key = card.color === "wild" ? card.value : `${card.color}_${card.value}`;
-      const filename = imageMap[key] || "WC.png"; // yedek görsel
+      const filename = imageMap[key] || "WC.png";
       const cardEl = document.createElement("div");
       cardEl.className = "card";
       cardEl.style.backgroundImage = `url('img/${filename}')`;
