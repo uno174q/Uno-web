@@ -1,3 +1,4 @@
+/* Genel sayfa tasarımı */
 body {
   margin: 0;
   height: 100vh;
@@ -6,22 +7,69 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Nunito', sans-serif;
 }
 
-#player-hand {
+/* İsim giriş ekranı */
+#start-screen {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* Şeffaf karartma */
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  color: white;
+  text-align: center;
 }
 
-.card {
-  width: 80px;
-  height: 120px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-  transition: transform 0.2s ease;
+/* Başlık ve açıklama */
+#start-screen h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
-.card:hover {
-  transform: scale(1.05);
+
+#start-screen p {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+/* İsim kutusu */
+#start-screen input {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  width: 220px;
+}
+
+/* Başla butonu */
+#start-screen button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#start-screen button:hover {
+  background: #ff6659;
+}
+
+/* Oyun ekranı alanı (başlangıçta gizli) */
+#game-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
 }
