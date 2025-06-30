@@ -13,7 +13,7 @@
     <button id="start-btn">Oyuna Başla</button>
   </div>
 
-  <!-- Oyun ekranı -->
+  <!-- Oyun sahnesi -->
   <div id="game-container" style="display: none;">
     <h2 id="turn-indicator">Sıra: Oyuncu</h2>
 
@@ -35,10 +35,23 @@
 
     <div class="section">
       <h3>Skor Tablosu</h3>
-      <div id="score-board">
-        <p>Oyuncu: <span id="player-score">0</span></p>
-        <p>Bot: <span id="bot-score">0</span></p>
-      </div>
+      <p>Oyuncu: <span id="player-score">0</span></p>
+      <p>Bot: <span id="bot-score">0</span></p>
+    </div>
+
+    <!-- Wild sonrası renk seçme ekranı -->
+    <div id="color-picker" style="display: none;">
+      <h3>Bir renk seç:</h3>
+      <button class="color-btn" data-color="red">Kırmızı</button>
+      <button class="color-btn" data-color="blue">Mavi</button>
+      <button class="color-btn" data-color="green">Yeşil</button>
+      <button class="color-btn" data-color="yellow">Sarı</button>
+    </div>
+
+    <!-- Kazanma ekranı -->
+    <div id="win-screen" style="display: none;">
+      <h2 id="win-message">Kazandın!</h2>
+      <button id="restart-btn">Yeniden Oyna</button>
     </div>
   </div>
 
