@@ -1,327 +1,82 @@
-/* Temel Stiller */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Nunito', sans-serif;
-    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-    height: 100vh;
-    overflow: hidden;
-    color: white;
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  height: 100vh;
+  background: url('img/uno_glow.png') no-repeat center center;
+  background-size: cover;
+  color: white;
+  overflow: hidden;
 }
 
+/* Başlangıç ekranı */
+#start-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#start-screen input {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  border: none;
+  margin-top: 10px;
+}
+
+#start-screen button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Oyun Sahnesi */
 #game-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    padding: 20px;
-    position: relative;
-}
-
-/* Oyun Başlığı */
-#game-header {
-    text-align: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 #game-header h1 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 3rem;
-    color: #fff;
-    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    margin-bottom: 10px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px #000;
 }
 
-#game-status {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#deck-count {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 1rem;
-}
-
-/* Rakip Alanı */
-#opponents-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-.opponent {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    min-width: 150px;
-}
-
-.opponent h3 {
-    margin-bottom: 10px;
-}
-
-.opponent-cards {
-    display: flex;
-    justify-content: center;
-    height: 60px;
-}
-
-.opponent-card {
-    width: 40px;
-    height: 60px;
-    background: url('https://raw.githubusercontent.com/laurentiustamate94/UNO/master/img/back.png');
-    background-size: cover;
-    margin-left: -15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-/* Orta Alan (Atık ve Deste) */
-#middle-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-#discard-pile-container {
-    position: relative;
-}
-
-#discard-pile {
-    width: 120px;
-    height: 180px;
-    position: relative;
-}
-
-.discard-card {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
-}
-
-#draw-pile {
-    width: 120px;
-    height: 180px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-#draw-pile:hover {
-    transform: scale(1.05);
-}
-
-#draw-pile img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-/* Oyuncu Eli */
-#player-hand-container {
-    margin-top: auto;
-    text-align: center;
-}
-
-#player-hand-container h2 {
-    margin-bottom: 10px;
-}
-
-#player-hand {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-    min-height: 200px;
-}
-
-.card {
-    width: 120px;
-    height: 180px;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 2.5rem;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-}
-
-.card:hover {
-    transform: translateY(-20px) scale(1.05);
-    z-index: 10;
-}
-
-.card-value {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    font-size: 1rem;
-}
-
-.card-value.bottom {
-    top: auto;
-    bottom: 5px;
-    right: 5px;
-    left: auto;
-    transform: rotate(180deg);
-}
-
-/* Renk Sınıfları */
-.red { background-color: #ff5555; }
-.blue { background-color: #5555ff; }
-.green { background-color: #55aa55; }
-.yellow { background-color: #ffaa00; color: black; text-shadow: none; }
-.black { background-color: #333; }
-
-/* Modal Stilleri */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    z-index: 100;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    color: #333;
-    position: relative;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.color-options {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.color-option {
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s;
-}
-
-.color-option:hover {
-    transform: scale(1.1);
-}
-
-/* Oyun Menüsü */
 #game-menu {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 #game-menu button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background: #4CAF50;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
 }
 
-#game-menu button:hover {
-    background: #45a049;
-    transform: translateY(-2px);
+#player-hand-container {
+  margin-top: 40px;
+  text-align: center;
 }
 
-/* Responsive Tasarım */
-@media (max-width: 768px) {
-    .card {
-        width: 80px;
-        height: 120px;
-        font-size: 1.8rem;
-    }
-    
-    #draw-pile, #discard-pile {
-        width: 80px;
-        height: 120px;
-    }
-    
-    #middle-section {
-        gap: 20px;
-    }
-    
-    #game-header h1 {
-        font-size: 2rem;
-    }
-}
-
-/* Animasyonlar */
-@keyframes cardPlayed {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-.card-played {
-    animation: cardPlayed 0.5s;
-}
-
-@keyframes unoFlash {
-    0%, 100% { background-color: transparent; }
-    50% { background-color: rgba(255, 255, 0, 0.5); }
-}
-
-.uno-alert {
-    animation: unoFlash 1s infinite;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-weight: bold;
+#player-hand {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
